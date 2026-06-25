@@ -23,5 +23,8 @@ Thumbs.db
 *.log
 npm-debug.log*
 
+# Local dev server (not deployed)
+server/
+
 # Temp
 .claude/
