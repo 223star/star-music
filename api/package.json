@@ -1,0 +1,8 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "bilibili-api": "^3.4.0"
+  }
+}

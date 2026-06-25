@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --scene-bg: #0f0f1a;
+  --scene-accent: #6366f1;
+  --scene-glow: rgba(99, 102, 241, 0.3);
+  --lyric-color: #8888aa;
+  --lyric-highlight: #ffffff;
+  --text-primary: #e0e0ff;
+  --text-secondary: #8888aa;
+  --card-bg: rgba(26, 26, 46, 0.8);
+  --card-border: rgba(42, 42, 74, 0.5);
+}
+
+/* 场景主题变量 */
+.scene-wave {
+  --scene-bg: #0a0a1a;
+  --scene-accent: #00d4ff;
+  --scene-glow: rgba(0, 212, 255, 0.3);
+}
+
+.scene-particle {
+  --scene-bg: #0f0f1a;
+  --scene-accent: #ff6b9d;
+  --scene-glow: rgba(255, 107, 157, 0.3);
+}
+
+.scene-aurora {
+  --scene-bg: #001a1a;
+  --scene-accent: #00ff88;
+  --scene-glow: rgba(0, 255, 136, 0.2);
+}
+
+.scene-vinyl {
+  --scene-bg: #1a0a0a;
+  --scene-accent: #ffd700;
+  --scene-glow: rgba(255, 215, 0, 0.3);
+}
+
+.scene-nebula {
+  --scene-bg: #0a001a;
+  --scene-accent: #a855f7;
+  --scene-glow: rgba(168, 85, 247, 0.3);
+}
+
+.scene-firefly {
+  --scene-bg: #001a0a;
+  --scene-accent: #22d3ee;
+  --scene-glow: rgba(34, 211, 238, 0.3);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+  background: var(--scene-bg);
+  color: var(--text-primary);
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#app {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
+/* 滚动条 */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* 弹幕动画 */
+@keyframes danmaku-scroll {
+  from { transform: translateX(100vw); }
+  to { transform: translateX(-100%); }
+}
+@keyframes danmaku-fade {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.danmaku-item {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  text-shadow: 0 0 4px rgba(0,0,0,0.8);
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* 歌词波浪动效 */
+@keyframes lyric-wave {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.lyric-wave-active {
+  animation: lyric-wave 0.3s ease-in-out;
+}
+
+/* 打字机动效 */
+@keyframes typewriter-cursor {
+  from { border-right-color: var(--lyric-highlight); }
+  to { border-right-color: transparent; }
+}
+
+/* 跳动动效 */
+@keyframes lyric-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
