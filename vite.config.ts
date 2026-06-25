@@ -10,11 +10,11 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/*.png'],
       manifest: {
-        name: 'FreeMusic - 免费听歌',
-        short_name: 'FreeMusic',
-        description: '免费音乐播放器，支持B站、网易云等多源搜索',
-        theme_color: '#1a1a2e',
-        background_color: '#1a1a2e',
+        name: 'star-music - 免费听歌',
+        short_name: 'star-music',
+        description: '免费音乐播放器，支持网易云、QQ音乐搜索',
+        theme_color: '#0a0a14',
+        background_color: '#0a0a14',
         display: 'standalone',
         icons: [
           { src: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
@@ -26,14 +26,6 @@ export default defineConfig({
   resolve: {
     alias: {
       '@': path.resolve(__dirname, 'src')
-    }
-  },
-  server: {
-    proxy: {
-      '/api': {
-        target: 'http://localhost:3001',
-        changeOrigin: true
-      }
     }
   }
 })
